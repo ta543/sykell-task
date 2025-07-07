@@ -31,7 +31,7 @@ Set the MySQL connection using `WEBCRAWLER_DSN` environment variable. Example:
    ```bash
    cd backend
    go mod tidy 
-   export WEBCRAWLER_DSN="user:1234@tcp(localhost:3306)/webcrawler?parseTime=true"
+   export WEBCRAWLER_DSN="user:password@tcp(localhost:3306)/webcrawler?parseTime=true"
    go run main.go
    ```
 
