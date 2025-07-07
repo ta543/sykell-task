@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS broken_links (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    url_id BIGINT NOT NULL,
+    link VARCHAR(255) NOT NULL,
+    status_code INT NOT NULL,
+    FOREIGN KEY (url_id) REFERENCES urls(id) ON DELETE CASCADE
+);

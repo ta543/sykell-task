@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --primary: #b388ff;
+  --primary-dark: #7b1fa2;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #110022, #000, #110022, #000);
+  background-size: 400% 400%;
+  animation: gradientMove 20s ease infinite;
+  color: #e0e0e0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(179,136,255,0.15), transparent 70%);
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 1rem;
+  animation: fadeIn 0.5s ease-in-out;
+  background: rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(179, 136, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: #e0e0e0;
+}
+
+.container:hover {
+  box-shadow: 0 12px 20px rgba(179, 136, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+h1 {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px var(--primary);
+}
+
+
+@media (max-width: 600px) {
+  table {
+    font-size: 0.8rem;
+  }
+  input, select, button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+th {
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+th:hover {
+  background-color: #e3f2fd;
+  transform: translateY(-1px);
+}
+
+button {
+  background-color: var(--primary);
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(179, 136, 255, 0.2);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(179, 136, 255, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+input,
+select {
+  padding: 0.3rem;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #000;
+  color: var(--primary);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(179, 136, 255, 0.3);
+  transform: scale(1.02);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: 0 2px 4px rgba(179, 136, 255, 0.1);
+  background: #111;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.results-table thead {
+  background-color: #222;
+}
+
+.results-table thead th {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.results-table th,
+.results-table td {
+  border-bottom: 1px solid #333;
+  padding: 0.5rem;
+}
+
+.results-table tbody tr:hover {
+  background-color: #222;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  transform: scale(1.01);
+  box-shadow: 0 2px 6px rgba(179, 136, 255, 0.1);
+}
+
+.results-table tbody tr.selected {
+  background-color: #2a0033;
+  box-shadow: inset 4px 0 0 var(--primary);
+  transition: background-color 0.3s;
+}
+
+.detail-container {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
