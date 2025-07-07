@@ -75,7 +75,7 @@ go test ./...
 
 All requests must include header `Authorization: secret-token`.
 
-- `POST /api/urls` – body `{"address": "https://example.com"}`
+- `POST /api/urls` – body `{"address": "https://google.com"}`
 - `GET /api/urls` – list URLs
   - query params: `page`, `limit`, `search`, `status`, `html`
 - `GET /api/urls/:id` – detail
